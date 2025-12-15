@@ -43,8 +43,8 @@ public class FirmwareUpdateService
         if (progress == total)
         {
             active.State = "Completed";
-            repo.CreateAndSave(active); // again duplicates instead of update
-            return "DONE"; // In general its weird to return a string for a result
+            repo.CreateAndSave(active);
+            return "DONE";
         }
 
         return active.State;

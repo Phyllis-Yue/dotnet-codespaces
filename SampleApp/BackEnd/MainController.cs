@@ -17,7 +17,6 @@ public class FirmwareUpdateController : ControllerBase
     [HttpPost("progress")]
     public async Task<IActionResult> SetProgress([FromQuery] Guid deviceId, [FromQuery] int progress, [FromBody] string notes)
     {
-        // query params + body weirdness, no validation, no error codes
         string state = await this.service.UpdateProgress(deviceId, progress, notes);
         return Ok(new { deviceId = deviceId, state = state });
     }
